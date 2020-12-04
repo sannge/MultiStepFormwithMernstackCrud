@@ -23,10 +23,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "server": "nodemon index",
-    "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "dev-start": "concurrently \"nodemon index\" \"cd client && npm run start\""
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "dev-start": "concurrently \"nodemon index\" \"cd client && npm run start\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
